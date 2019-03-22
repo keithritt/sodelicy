@@ -1,0 +1,7 @@
+command=/home/ubuntu/env/bin/gunicorn sodelicy.wsgi:application -c /home/ubuntu/p3625x/gunicorn.conf.py
+directory=/home/ubuntu/sodelicy/
+user=ubuntu
+stderr_logfile = /home/ubuntu/logs/supervisor-err-sodelicy.log
+stdout_logfile = /home/ubuntu/logs/supervisor-out-sodelicy.log
+autorestart=true
+redirect_stderr=true
