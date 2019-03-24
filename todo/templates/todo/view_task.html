@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>ToDo App</title>
+	</head>
+	<body>
+					<form action="{% url 'save_task' %}" method="POST" role="form">
+						{% csrf_token %}
+						<!--<div class="form-group">
+							<div class="input-group">-->
+								<input type="hidden" name="task_id" value="{{ task_id }}" />
+							  Text:{{ form.text}}<br>
+							  Priority:{{ form.priority }}<br>
+							  Due Date:{{ form.due_date }}<br>
+							  Status:{{ form.status }}<br>
+							  Category:{{ form.category }}<br>
+							  Assignee:{{ form.assignee }}<br>
+							  Occurrence:{{ form.occurence }}<br>
+							  Occurrence Desc:{{ form.occurence_desc }}<br>
+							  Time Estimate:{{ form.time_estimate_val }}
+							  {{ form.time_estimate_metric }}<br>
+							  Actual Time:{{ form.time_actual_val }}
+							  {{ form.time_actual_metric }}<br>
+							  Percent Complete:{{ form.percent_complete }}<br>
+							  Location:{{ form.location }}<br>
+
+
+
+							  <span class="input-group-btn">
+								  <button type="submit" class="btn btn-default" id="add-btn">Save</button>
+							  </span>
+					<a href="{% url 'index' %}">
+						<button type="button" class="btn btn-warning">
+							<i class="glyphicon"></i> Cancel
+						</button>
+					</a>
+							  <!--
+							</div>
+						</div>-->
+					</form>
+	</body>
+</html>
