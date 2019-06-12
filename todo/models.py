@@ -13,17 +13,16 @@ class Task(models.Model):
   CATEGORIES = (
     ('HOU', 'Housework'),
     ('PUR', 'Purchase List'),
-    ('JLL', 'Work (JLL)'),
+    ('WOR', 'Work'),
     ('FAM', 'Family'),
     ('HEA', 'Health'),
     ('LEA', 'Learning'),
-    ('GDK', 'Gadake'),
-    ('TF', 'Thirsty Flirt'),
     ('TODO', 'ToDo List App'),
   )
   ASSIGNEES = (
-    ('KEI', 'Keith'),
-    ('JES', 'Jess')
+    ('ME', 'Me'),
+    ('SPO', 'Spouse'),
+    ('KID', 'Kid'),
   )
   OCCURRENCES = (
     ('ONCE', 'One Time'),
@@ -49,6 +48,7 @@ class Task(models.Model):
   text = models.CharField(max_length=128)
   #complete = models.BooleanField(default=False)
   status = models.CharField(max_length=4, choices=STATUSES, default='NEW', blank=True)
+  start_date = models.DateField(null=True, blank=True)
   due_date = models.DateField(null=True, blank=True)
   parent_id = models.IntegerField(null=True, blank=True)
   prereq_id = models.IntegerField(null=True, blank=True)
@@ -67,6 +67,7 @@ class Task(models.Model):
   location = models.CharField(max_length=64, null=True, blank=True)
   orig_text = models.CharField(max_length=64, null=True, blank=True)
   notes = models.CharField(max_length=4000, null=True, blank=True)
+  is_template = models.BooleanField(default=False)
 
   def __str__(self):
     return "{} {} {}".format(self.priority, self.category, self.text)

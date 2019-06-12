@@ -1,0 +1,9 @@
+<form action="{% url 'save_task' %}" method="POST" role="form">
+{% csrf_token %}
+<input type="hidden" name="task-id" value="new"/>
+
+<span class="input-group-btn">
+  <input type="text" class="form-control" id="task-input" name="task-input" aria-describedby="todo input" placeholder="enter your task"/>
+  <button type="submit" class="btn btn-default" id="add-btn">go</button>
+</span>
+</form>

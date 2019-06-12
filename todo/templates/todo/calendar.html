@@ -1,0 +1,13 @@
+{% extends 'todo/base.html' %}
+{% load static %}
+{% block content %}
+Calendar
+
+{% for date_idx, date in dates.items %}
+  Date: {{ date.display }}
+  <br><br>
+{% endfor %}
+
+
+
+{% endblock %}

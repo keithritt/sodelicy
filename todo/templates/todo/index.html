@@ -1,81 +1,53 @@
+{% extends 'todo/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>ToDo App</title>
+{% block content %}
 
-		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="{% static 'todo/bs/css/flatly.min.css' %}" />
-		<link rel="stylesheet" href="{% static 'todo/styles.css'%}" />
+Today's Tasks:<br>
+<select id="task-action">
+    <option value="mark-complete">Mark Complete</option>
+    <option value="add-to-queue">Add to Queue</option>
+    <option value="remove-from-queue">Remove from Queue</option>
+  </select>
+<table>
+      <tr>
+      <td></td>
+      <td>ID</td>
+      <td>Task</td>
+      <td>Category</td>
+      <td>Status</td>
+      <td>Priority</td>
+      <td>Due Date</td>
+      </tr>
+  {% for task in tasks %}
+      <tr id="task-row-{{task.id}}" class="clickable"
+        onmouseover="ns.highlightTask({{task.id}});" onmouseout="ns.unhighlightTask({{task.id}});"
+        onclick="ns.clickTask({{task.id}});" ondblclick="ns.doubleClickTask({{task.id}});">
+      <td><input type="checkbox" onchange="ns.checkTask({{ task.id }}, this.checked)"/></td>
+      <td>{{task.id}}</td>
+      <td><span id="task-description-{{ task.id }}">{{ task.text }}</span></td>
+      <td>{{task.category}}</td>
+      <td>{{task.status}}</td>
+      <td>{{task.priority}}</td>
+      <td>{{task.due_date}}</td>
+      </tr>
 
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-	</head>
-	<body>
+  {% endfor %}
+</table>
 
-		<div class="container-fluid" id="wrapper">
-			<div class="btn-group">
-				{# <a href="{% url 'view_task/<new>' %}/new">#}
 
-					<a href="{% url 'view_task' 'new' %}">
-				<button type="button" class="btn btn-warning">
-					<i class="glyphicon"></i> Create New Task
-				</button>
-			</a>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-lg-offset-4" id="content">
-					<div class="row t10">
-						<div class="col-lg-12">
-							<div class="btn-toolbar">
-								<div class="btn-group">
-									<a href="">
+<script>
+ns.task_data = JSON.parse('{{tasks_json|safe}}');
 
-								</a>
-								</div>
-								<div class="btn-group">
-									<a href="">
-									<button type="button" class="btn btn-warning">
-										<i class="glyphicon"></i> DELETE ALL
-									</button>
-								</a>
-								</div>
-							</div>
-						</div>
-					</div>
 
-					<ul class="list-group t20">
-						{% for task in tasks %}
+console.log(ns.task_data);
+</script>
 
-								<a href="{% url 'view_task' task.id %}"><li class="list-group-item">{{ task.text }}</a></li>
-
-						{% endfor %}
+{% endblock%}
 
 
 
 
-					</ul>
-				</div>
-			</div>
-
-			<footer>
-				<div class="row pad">
-					<div class="col-lg-12 text-center">
-						Copyright &copy; 2017 <strong>ToDo App</strong>
-					</div>
-				</div>
-			</footer>
-		</div>
 
 
-	</body>
-</html>
+

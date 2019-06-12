@@ -1,0 +1,27 @@
+{% load static %}
+
+{% include 'todo/start.html' %}
+
+
+{% include 'todo/modal.html' %}
+<br><br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1" id="left-col">
+      {% include 'todo/left-links.html' %}
+    </div>
+    <div class="col-8" id="center-col">
+      {% include 'todo/task-bar.html' %}
+      {% block content %}{% endblock %}
+    </div>
+    <div class="col-3" id="right-col">
+      {% include 'todo/right-form.html' %}
+    </div>
+  </div>
+</div>
+
+
+{% include 'todo/task-edit-form.html' %}
+
+
+{% include 'todo/end.html' %}
