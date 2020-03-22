@@ -1,0 +1,26 @@
+last synced with prod: ?
+
+default:8000
+gadake:8000
+thirstyflirt:8001
+keithandjess:8002
+keithritt:8004
+gadakedev:8005
+scivive:8006
+safire.tech:8007
+connectcuatro.com:8008
+p35625x.com:8009
+brewskis.club:8010
+brewskis.biz:8011
+brewskis.info: 8012
+brewskis.me: 8013
+brewskis.net 8014
+brewskis.online: 8015
+brewskis.store:8016
+factify.info:8017
+datonfix.com:8018
+sodelicy.com:8019
+factify.info:8020
+brewskis.club:8021
+readywrestling.com:8022
+

@@ -1,0 +1,12 @@
+{
+    "domains": {
+        "brewskis.club": {
+            "domain_code": "brewskis_club",
+            "port": "8010"
+        },
+        "readywrestling.com": {
+            "domain_code": "readywrestling",
+            "port": "8022"
+        }
+    }
+}
