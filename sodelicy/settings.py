@@ -25,7 +25,7 @@ SECRET_KEY = 'x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sodelicy.com', 'www.sodelicy.com']
+ALLOWED_HOSTS = ['sodelicy.com', 'www.sodelicy.com', 'beta.sodelicy.com', 'dev.sodelicy.com', 'localhost', '127.0.0.1']
 DEFAULT_FROM_EMAIL = 'contact@sodelicy.com'
 
 
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'todo',
+    'sitewizard',
 ]
 
 MIDDLEWARE = [
